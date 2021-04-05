@@ -1,35 +1,100 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
+const generateMarkdown = require('./utils/generateMarkdown');
 const fs = require('fs');
 
 // TODO: Create an array of questions for user input
-const questions = [];
+const questions = [{
+        type: 'input',
+        name: 'title',
+        message: 'What is your project name?'
+    },
+    {
+        type: 'input',
+        name: 'motivation',
+        message: 'What was your motivation?'
+    },
+    {
+        type: 'input',
+        name: 'why',
+        message: 'Why did you build this project?'
+    },
+    {
+        type: 'input',
+        name: 'solve',
+        message: 'What problem does it solve?'
+    },
+    {
+        type: 'input',
+        name: 'learn',
+        message: 'What did you learn?'
+    },
+    {
+        type: 'input',
+        name: 'steps',
+        message: 'What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.'
+    },
+    {
+        type: 'input',
+        name: 'images',
+        message: 'Provide instructions and examples for use. Include screenshots as needed.'
+    },
+    {
+        type: 'input',
+        name: 'collaborators',
+        message: 'If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.'
+    },
+    {
+        type: 'input',
+        name: 'tutorials',
+        message: 'If you followed tutorials, include links to those here as well.'
+    },
+    {
+        type: 'list',
+        name: 'license',
+        message: 'Let other developers know what they can and cannot do with your project.',
+        choices: ['MIT License', 'Apache License 2.0', 'ISC License', 'GNU General Public License v2.0', 'GNU General Public License v3.0']
+    },
+    {
+        type: 'input',
+        name: 'badges',
+        message: 'let other developers know that you know what you are doing, demonstrate street cred.'
+    },
+    {
+        type: 'input',
+        name: 'features',
+        message: 'If your project has a lot of features, list them here.'
+    },
+    {
+        type: 'input',
+        name: 'contribute',
+        message: 'If you created an application or package and would like other developers to contribute it, include guidelines for how to do so.'
+    },
+    {
+        type: 'input',
+        name: 'test',
+        message: 'Go the extra mile and write tests for your application. Then provide examples on how to run them here.'
+    },
+];
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    `
-# ${fileName.title}
 
-1. [ Description. ](#description)
-2. [ Table of Contents. ](#table-of-contents)
-3. [ Installation. ](#installation)
-4. [ Usage. ](#usage)
-5. [ License. ](#license)
-6. [ Contributing. ](#contributing)
-7. [ Tests. ](#tests)
-8. [ Questions. ](#questions)
-
-<a name="description"></a>
-
-## 1. description
-
-
-
-    `
+    fs.writeFile(fileName, data, (err) => {
+        err ? console.log(err) : console.log('Successfully created new README.md!')
+    })
 }
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    inquirer.prompt(questions).then(function (data) {
+        const readMeContent = generateMarkdown(data);
+
+        writeToFile('README.md', readMeContent, (err) => {
+            err ? console.log(err) : console.log('Successfully created new README.md!')
+        });
+    })
+};
 
 // Function call to initialize app
 init();
