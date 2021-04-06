@@ -1,8 +1,22 @@
+const generateMITLicense = require('./license');
+
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
-
-}
+  if (license === 'MIT License') {
+    return license = generateMITLicense
+  } else if (license === 'Apache License 2.0') {
+    return
+  } else if (license === 'ISC License') {
+    return
+  } else if (license === 'GNU General Public License v2.0') {
+    return
+  } else if (license === 'GNU General Public License v3.0'){
+    return
+  } else {
+    return "";
+  }
+};
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
@@ -51,13 +65,12 @@ ${data.tutorials}\n
 ## License\n
 🏆 
 The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
-${data.license}\n
+${renderLicenseBadge(data.license)}
 
 ## Badges\n
 ![badmath](https://img.shields.io/github/languages/top/nielsenjared/badmath)
 Badges aren't necessary, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
-${data.badges}\n
-${renderLicenseLink(data.license)}
+${renderLicenseLink(data.badges)}
 
 ## Features\n
 If your project has a lot of features, list them here.

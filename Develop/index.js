@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown');
+const generateMITLicense = require('./utils/license');
 const fs = require('fs');
 
 // TODO: Create an array of questions for user input
@@ -9,51 +10,61 @@ const questions = [{
         name: 'title',
         message: 'What is your project name?'
     },
-    {
-        type: 'input',
-        name: 'motivation',
-        message: 'What was your motivation?'
-    },
-    {
-        type: 'input',
-        name: 'why',
-        message: 'Why did you build this project?'
-    },
-    {
-        type: 'input',
-        name: 'solve',
-        message: 'What problem does it solve?'
-    },
-    {
-        type: 'input',
-        name: 'learn',
-        message: 'What did you learn?'
-    },
-    {
-        type: 'input',
-        name: 'steps',
-        message: 'What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.'
-    },
-    {
-        type: 'input',
-        name: 'images',
-        message: 'Provide instructions and examples for use. Include screenshots as needed.'
-    },
-    {
-        type: 'input',
-        name: 'collaborators',
-        message: 'If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.'
-    },
-    {
-        type: 'input',
-        name: 'tutorials',
-        message: 'If you followed tutorials, include links to those here as well.'
-    },
+    // {
+    //     type: 'input',
+    //     name: 'motivation',
+    //     message: 'What was your motivation?'
+    // },
+    // {
+    //     type: 'input',
+    //     name: 'why',
+    //     message: 'Why did you build this project?'
+    // },
+    // {
+    //     type: 'input',
+    //     name: 'solve',
+    //     message: 'What problem does it solve?'
+    // },
+    // {
+    //     type: 'input',
+    //     name: 'learn',
+    //     message: 'What did you learn?'
+    // },
+    // {
+    //     type: 'input',
+    //     name: 'steps',
+    //     message: 'What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.'
+    // },
+    // {
+    //     type: 'input',
+    //     name: 'images',
+    //     message: 'Provide instructions and examples for use. Include screenshots as needed.'
+    // },
+    // {
+    //     type: 'input',
+    //     name: 'collaborators',
+    //     message: 'If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.'
+    // },
+    // {
+    //     type: 'input',
+    //     name: 'tutorials',
+    //     message: 'If you followed tutorials, include links to those here as well.'
+    // },
     {
         type: 'list',
         name: 'license',
         message: 'Let other developers know what they can and cannot do with your project.',
         choices: ['MIT License', 'Apache License 2.0', 'ISC License', 'GNU General Public License v2.0', 'GNU General Public License v3.0']
+    },
+    {
+        type: 'input',
+        name: 'year',
+        message: 'Input the year for your license.'
+    },
+    {
+        type: 'input',
+        name: 'fullName',
+        message: 'Input your full name for your license.'
     },
     {
         type: 'input',
