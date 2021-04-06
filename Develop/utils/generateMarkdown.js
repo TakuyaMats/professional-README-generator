@@ -1,18 +1,18 @@
-const generateMITLicense = require('./license');
+const generateLicense = require('./license');
+
+const { MITLicense } = generateLicense;
+const { ApacheLicense } = generateLicense;
+const { ISCLicense } = generateLicense;
 
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
   if (license === 'MIT License') {
-    return license = generateMITLicense
+    return `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`
   } else if (license === 'Apache License 2.0') {
-    return
+    return `[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`
   } else if (license === 'ISC License') {
-    return
-  } else if (license === 'GNU General Public License v2.0') {
-    return
-  } else if (license === 'GNU General Public License v3.0'){
-    return
+    return `[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)`
   } else {
     return "";
   }
@@ -21,13 +21,29 @@ function renderLicenseBadge(license) {
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
-
+  if (license === 'MIT License') {
+    return `https://choosealicense.com/licenses/mit/`
+  } else if (license === 'Apache License 2.0') {
+    return `https://choosealicense.com/licenses/apache-2.0/`
+  } else if (license === 'ISC License') {
+    return `https://choosealicense.com/licenses/isc/`
+  } else {
+    return "";
+  }
 }
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
-
+  if (license === 'MIT License') {
+    return `${ MITLicense }`;
+  } else if (license === 'Apache License 2.0') {
+    return `${ ApacheLicense }`;
+  } else if (license === 'ISC License') {
+    return `${ ISCLicense }`;
+  } else {
+    return "";
+  }
 }
 
 // TODO: Create a function to generate markdown for README
@@ -62,15 +78,12 @@ ${data.collaborators}\n
 Links:\n 
 ${data.tutorials}\n
 
-## License\n
-🏆 
-The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
-${renderLicenseBadge(data.license)}
+## 🏆 License\n
+${renderLicenseLink(data.license)}\n
+${renderLicenseSection(data.license)}\n
 
 ## Badges\n
-![badmath](https://img.shields.io/github/languages/top/nielsenjared/badmath)
-Badges aren't necessary, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
-${renderLicenseLink(data.badges)}
+${renderLicenseBadge(data.license)}\n
 
 ## Features\n
 If your project has a lot of features, list them here.
