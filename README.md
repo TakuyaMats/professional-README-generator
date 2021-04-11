@@ -22,7 +22,7 @@ SO THAT I can quickly create a professional README for a new project
 
 ## 2. Site Links & Video Demonstration
 
-[Video Demo]
+![Video-Demo](./Video/professional_readme_generator_video.gif "Video")
 
 [github repository site] https://github.com/TakuyaMats/professional-README-generator.git
 
