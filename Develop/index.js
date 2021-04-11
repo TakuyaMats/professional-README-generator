@@ -1,10 +1,12 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
+inquirer.registerPrompt('directory', require('inquirer-directory'));
 const generateMarkdown = require('./utils/generateMarkdown');
 const fs = require('fs');
 
 // TODO: Create an array of questions for user input
-const questions = [{
+const questions = [
+    {
         type: 'input',
         name: 'title',
         message: 'What is your project name?'
@@ -35,9 +37,31 @@ const questions = [{
         message: 'What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.'
     },
     {
-        type: 'input',
+        type: 'confirm',
+        name: 'images_confirm',
+        message: 'Would you like to add screenshots to your Readme?',
+    },
+    {
+        type: "input",
         name: 'images',
-        message: 'Provide instructions and examples for use. Include screenshots as needed.'
+        message: ' Please add your images to the readMePhotos folder and provide image name here.',
+        when: function (answers) {
+            console.log(answers)
+            return answers.images_confirm;
+        },
+    },
+    {
+        type: "confirm",
+        name: 'more_images',
+        message: 'Would you like to add more images?',
+    },
+    {
+        type: "input",
+        name: 'adding_more_images',
+        message: 'Please add your images to the readMePhotos folder and provide the file path to your image here.',
+        when: function (answers) {
+            return answers.more_images;
+        },
     },
     {
         type: 'input',
@@ -55,6 +79,11 @@ const questions = [{
         message: 'Let other developers know what they can and cannot do with your project.',
         choices: ['MIT License', 'Apache License 2.0', 'ISC License']
     },
+    {
+        type: 'input',
+        name: 'fullName',
+        message: 'Please provide your full name.'
+    }
     {
         type: 'input',
         name: 'features',
@@ -83,7 +112,10 @@ function writeToFile(fileName, data) {
 // TODO: Create a function to initialize app
 function init() {
     inquirer.prompt(questions).then(function (data) {
-        const readMeContent = generateMarkdown(data);
+        var newData = {year: 2021, ...data}
+        console.log(newData);
+        const readMeContent = generateMarkdown(newData);
+        
 
         writeToFile('README.md', readMeContent, (err) => {
             err ? console.log(err) : console.log('Successfully created new README.md!')

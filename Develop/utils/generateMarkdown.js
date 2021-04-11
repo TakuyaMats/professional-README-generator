@@ -34,13 +34,13 @@ function renderLicenseLink(license) {
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {
+function renderLicenseSection(license, year, fullName) {
   if (license === 'MIT License') {
-    return `${ MITLicense }`;
+    return `MIT License Copyright (c) ${year} ${fullName} ${ MITLicense }`;
   } else if (license === 'Apache License 2.0') {
     return `${ ApacheLicense }`;
   } else if (license === 'ISC License') {
-    return `${ ISCLicense }`;
+    return `ISC License Copyright (c) ${year} ${fullName} ${ ISCLicense }`;
   } else {
     return "";
   }
@@ -70,7 +70,9 @@ What did you learn?\n
 ${data.steps}\n
 
 ## Usage\n
-${data.images}\n
+
+![Front-Page](./readMePhotos/${data.images} "Front-Page")\n
+
 
 ## Credits\n
 Collaborators:\n 
@@ -80,7 +82,7 @@ ${data.tutorials}\n
 
 ## 🏆 License\n
 ${renderLicenseLink(data.license)}\n
-${renderLicenseSection(data.license)}\n
+${renderLicenseSection(data.license, data.year, data.fullName)}\n
 
 ## Badges\n
 ${renderLicenseBadge(data.license)}\n

@@ -1,10 +1,10 @@
-# asdf
+# undefined
 
 ## Description
 
 What was your motivation?
 
-- undefined
+- yes
 
 Why did you build this project?
 
@@ -31,7 +31,7 @@ undefined
 
 ## Usage
 
-undefined
+![screenshot](./readMePhotos/undefined "screenshot")
 
 ## Credits
 
@@ -47,9 +47,7 @@ undefined
 
 https://choosealicense.com/licenses/mit/
 
-MIT License
-
-Copyright (c) [year] [full name]
+MIT License Copyright (c) 2021
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -75,6 +73,15 @@ SOFTWARE.
 
 ## Features
 
+If your project has a lot of features, list them here.
+undefined
+
 ## How to Contribute
 
+If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
+undefined
+
 ## Tests
+
+Go the extra mile and write tests for your application. Then provide examples on how to run them here.
+undefined

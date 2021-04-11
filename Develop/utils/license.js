@@ -1,7 +1,5 @@
 generateLicense = {
-MITLicense: `MIT License
-
-Copyright (c) [year] [full name]
+MITLicense: `
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
