@@ -32,11 +32,6 @@ const questions = [
         message: 'What did you learn?'
     },
     {
-        type: 'input',
-        name: 'steps',
-        message: 'What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.'
-    },
-    {
         type: 'confirm',
         name: 'images_confirm',
         message: 'Would you like to add screenshots to your Readme?',
@@ -46,21 +41,7 @@ const questions = [
         name: 'images',
         message: ' Please add your images to the readMePhotos folder and provide image name here.',
         when: function (answers) {
-            console.log(answers)
             return answers.images_confirm;
-        },
-    },
-    {
-        type: "confirm",
-        name: 'more_images',
-        message: 'Would you like to add more images?',
-    },
-    {
-        type: "input",
-        name: 'adding_more_images',
-        message: 'Please add your images to the readMePhotos folder and provide the file path to your image here.',
-        when: function (answers) {
-            return answers.more_images;
         },
     },
     {
@@ -83,7 +64,7 @@ const questions = [
         type: 'input',
         name: 'fullName',
         message: 'Please provide your full name.'
-    }
+    },
     {
         type: 'input',
         name: 'features',
@@ -113,7 +94,6 @@ function writeToFile(fileName, data) {
 function init() {
     inquirer.prompt(questions).then(function (data) {
         var newData = {year: 2021, ...data}
-        console.log(newData);
         const readMeContent = generateMarkdown(newData);
         
 

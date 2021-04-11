@@ -1,22 +1,24 @@
-# undefined
+# professional README generator
+
 
 ## Description
 
 What was your motivation?
 
-- yes
+- to create a README generator
 
 Why did you build this project?
 
-- undefined
+- so that I can quickly create a professional README for a new project
 
 What problem does it solve?
 
-- undefined
+- to save time creating a README file
 
 What did you learn?
 
-- undefined
+- to use the npm inquirer prompt and using node.js
+
 
 ## Table of Contents
 
@@ -29,25 +31,30 @@ What did you learn?
 
 undefined
 
+
 ## Usage
 
-![screenshot](./readMePhotos/undefined "screenshot")
+
+![Front-Page](./readMePhotos/README_screenshot_example.png "Front-Page")
+
+
 
 ## Credits
 
 Collaborators:
-
-undefined
+ 
+Ben Durham: [https://github.com/bdurham227]
 
 Links:
+ 
+no tutorials
 
-undefined
 
 ## 🏆 License
 
 https://choosealicense.com/licenses/mit/
 
-MIT License Copyright (c) 2021
+MIT License Copyright (c) 2021 Takuya Matsumoto 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -67,21 +74,27 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
+
 ## Badges
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+
 ## Features
 
 If your project has a lot of features, list them here.
-undefined
+no features
+
 
 ## How to Contribute
 
 If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
-undefined
+no package
+
 
 ## Tests
 
 Go the extra mile and write tests for your application. Then provide examples on how to run them here.
-undefined
+no exmaples.
+
+

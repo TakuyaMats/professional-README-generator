@@ -199,9 +199,7 @@ END OF TERMS AND CONDITIONS
 `
 },
 {
-ISCLicense: `ISC License
-
-Copyright (c) [year], [fullname]
+ISCLicense: `
 
 Permission to use, copy, modify, and/or distribute this software for any
 purpose with or without fee is hereby granted, provided that the above
